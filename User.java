@@ -4,7 +4,8 @@
  * other classses will inherit from this
  */
 //import java.util.ArrayList;
-public class User {
+public class User { // this might actually be an interface
+
     private String firstName;
     private String lastName;
     private String addressFirstLine;
@@ -24,9 +25,11 @@ public class User {
         addressFirstLine = address;
         this.postCode = postCode;
     }
-    //must check whetehr this type of constructor overloading is appropraite for different user types ********
-    //constructor that gathers user names. usful for staff creation.
-    public User (String firstName, String lastName) {
+
+    // must check whetehr this type of constructor overloading is appropraite for
+    // different user types ********
+    // constructor that gathers user names. usful for staff creation.
+    public User(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }
@@ -48,11 +51,13 @@ public class User {
         return postCode;
     }
 
-    // mutators ***possibly not needed if set during the constructor? Only necessary for changing details.
-    //public void setFirstName(String firstName) {
-       // this.firstName = firstName;
-   // }
+    // mutators ***possibly not needed if set during the constructor? Only necessary
+    // for changing details.
+    // public void setFirstName(String firstName) {
+    // this.firstName = firstName;
+    // }
 
-    //remove user, does this go here or in the manager? ********
-    //read through the spec, to determine whther a customer can delete their account********
+    // remove user, does this go here or in the manager? ********
+    // read through the spec, to determine whther a customer can delete their
+    // account********
 }
