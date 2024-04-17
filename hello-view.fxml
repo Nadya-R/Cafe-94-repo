@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<VBox spacing="10" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cafeo.TakeawayManagementController">
+    <ListView fx:id="takeawayListView" prefWidth="200" VBox.vgrow="ALWAYS"/>
+
+    <HBox spacing="10">
+        <TextField fx:id="nameTextField" promptText="Name"/>
+        <TextField fx:id="priceTextField" promptText="Price"/>
+        <Button text="Add" onAction="#addTakeawayItem"/>
+        <Button text="Edit" onAction="#editTakeawayItem"/>
+        <Button text="Delete" onAction="#deleteTakeawayItem"/>
+    </HBox>
+</VBox>
