@@ -8,40 +8,58 @@ import java.util.ArrayList;
 
 public class Staff extends User {
     private double hoursToWork;
-    private double shiftHours; //may not be necessary
+    // private double shiftHours; //may not be necessary
 
-    //hours worked list
+    // hours worked list
     private ArrayList<Double> hoursWorked;
     private ArrayList<Double> overTimeWorked;
 
-
-
     // basic constructor in order to use this class as a super
     Staff() {
-
+        hoursWorked = new ArrayList<>();
+        overTimeWorked = new ArrayList<>();
     }
 
-    //set hours to work 
-public void setHours (double hours) {
+    // set hours to work for the month or whatever
+    public void setHours(double hours) {
 
-    System.out.println("message here- will it be viewed though");
-    hoursToWork = hours;
-}
-
-public void addHoursWorked (double hours) {
-    double sum = 0;
-    //tally total in 
-    for (double num : hoursWorked) {
-        sum += num;
-
-        //if (sum > hoursToWork) (
-           // add
-        //)
+        System.out.println("message here- will it be viewed though");
+        hoursToWork = hours;
     }
 
-}
-   
-    //is it possible to change these or wipe these each month
-    //set hours worked
+    // Staff would add their hours worked at the end of the shift
+    public void addHoursWorked(double hours) {
+        hoursWorked.add(hours);
+        //double sum = 0.0;
+        // tally total in
+       // for (double num : hoursWorked) {
+           // sum += num;
+
+            //if (sum >= hoursToWork) {
+              //  overTimeWorked.add(hours);
+            //} else {
+              //  hoursWorked.add(hours);
+            //}
+        //}
+    }
+
+    //methid to get total hours worked
+    public double getTotalHoursWorked () {
+        double totalHours = 0.0;
+        for (double num : hoursWorked) {
+            totalHours += num;
+        }
+        return totalHours;
+    }
+
+    //total hours worked 
+    public String toString1(){
+        String str = "total hours worked ";
+        return str + getTotalHoursWorked();
+    }
+
+
+    // is it possible to change these or wipe these each month
+    // set hours worked
 
 }
