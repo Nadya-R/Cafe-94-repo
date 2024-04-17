@@ -23,7 +23,7 @@ public class TakeawayManagementController {
         String price = priceTextField.getText().trim();
 
         if (!name.isEmpty() && !price.isEmpty()) {
-            takeawayListView.getItems().add(name + " - $" + price);
+            takeawayListView.getItems().add(name + " - £" + price);
             clearFields();
         } else {
             showAlert("Please enter name and price.");
@@ -32,12 +32,12 @@ public class TakeawayManagementController {
 
     @FXML
     public void editTakeawayItem(ActionEvent event) {
-        // Your edit logic here
+        System.out.println("Edit your takeaway?");
     }
 
     @FXML
     public void deleteTakeawayItem(ActionEvent event) {
-        // Your delete logic here
+        System.out.println("Deleted your takeaway");
     }
 
     private void clearFields() {
