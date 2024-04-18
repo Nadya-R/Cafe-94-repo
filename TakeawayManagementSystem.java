@@ -14,10 +14,10 @@ public class TakeawayManagementSystem extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            // Get the URL of the FXML file relative to the class package
+      
 Parent root = FXMLLoader.load(TakeawayManagementSystem.class.getResource("hello-view.fxml"));
 
-            // Load the FXML file
+  
 
             primaryStage.setTitle("Takeaway Management System");
 
