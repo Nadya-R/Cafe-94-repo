@@ -20,7 +20,7 @@ public class Menu {
     }
 
     public void updateMenuItem(MenuItem item) {
-        // Implement update logic based on requirements
+       
     }
 
     public List<MenuItem> getDailySpecials() {
@@ -28,7 +28,7 @@ public class Menu {
     }
 
     public Report generatePopularItemsReport() {
-        // Implement report generation logic based on popular items
+        
         return new Report();
     }
 
