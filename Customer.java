@@ -1,8 +1,10 @@
+import java.util.List;
 public class Customer extends User {
    // I think this is an impliment instead
 
    private static int counter = 1;
    private int customerId;
+   private List<Order> previousOrders;
 
    // constructor
    public Customer(String firstName, String lastName, String address, String postCode) {
@@ -20,6 +22,16 @@ public class Customer extends User {
    public int getCustomerId() {
       return customerId;
    }
-
-   // view preious orders
+   //create order
+   public  Order createOrder () {
+      return new Order();
+   }
+   //add to previous orders list
+   public void addPreviousOrder(Order order) {
+      previousOrders.add(order);
+  }
+//Show order history
+  public List<Order> getOrderHistory() {
+      return previousOrders;
+  }
 }
