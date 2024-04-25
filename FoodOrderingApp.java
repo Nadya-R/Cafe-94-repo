@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FoodOrderingApp extends Application {
-    private FoodOrderingSystem foodOrderingSystem;
+    FoodOrderingSystem foodOrderingSystem;
     private Order currentOrder;
     private List<Order> orderHistory;
     private Menu menu;
@@ -42,7 +42,7 @@ public class FoodOrderingApp extends Application {
 
         // Create buttons for each menu item
         for (MenuItem item : menu.getMenuItems()) {
-            Button button = new Button(item.getItemName() + " - $" + item.getPrice());
+            Button button = new Button(item.getItemName() + " - £" + item.getPrice());
             button.setOnAction(event -> {
                 if (currentOrder == null) {
                     currentOrder = foodOrderingSystem.createOrder();
@@ -55,7 +55,7 @@ public class FoodOrderingApp extends Application {
 
         Label specialsLabel = new Label("Daily Specials:");
         for (MenuItem item : menu.getDailySpecials()) {
-            Button button = new Button(item.getItemName() + " - $" + item.getPrice());
+            Button button = new Button(item.getItemName() + " - £" + item.getPrice());
             button.setOnAction(event -> {
                 if (currentOrder == null) {
                     currentOrder = foodOrderingSystem.createOrder();
@@ -87,6 +87,7 @@ public class FoodOrderingApp extends Application {
     }
 
     public static void main(String[] args) {
+
         launch(args);
     }
 }

@@ -22,7 +22,7 @@ public class Customer extends User {
    public int getCustomerId() {
       return customerId;
    }
-   //create order
+   //create order, might be best to do 4 different order creation methods
    public  Order createOrder () {
       return new Order();
    }
