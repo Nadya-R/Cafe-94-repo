@@ -1,6 +1,5 @@
 class BookingSystem:
-    def __init__(self):
-        self.bookings = {}
+
 
     def create_booking(self, num_guests, date, time, duration, customer_id):
         if self.check_availability(date, time, duration):
@@ -37,5 +36,6 @@ class BookingSystem:
 
     def get_datetime(self, time_str):
         return int(time_str.split(':')[0]) * 60 + int(time_str.split(':')[1])
+                }
 
 
