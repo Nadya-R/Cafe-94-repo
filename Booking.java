@@ -1,41 +1,58 @@
-class BookingSystem:
+import java.util.Date;
 
+public class Booking {
+    private int numberOfGuests;
+    private Date bookingDate;
+    private Date bookingTime;
+    private int customerID;
+    private boolean approved;
 
-    def create_booking(self, num_guests, date, time, duration, customer_id):
-        if self.check_availability(date, time, duration):
-            booking_id = len(self.bookings) + 1
-            self.bookings[booking_id] = {
-                'num_guests': num_guests,
-                'date': date,
-                'time': time,
-                'duration': duration,
-                'customer_id': customer_id,
-                'status': 'pending'
-            }
-            return f"Booking created successfully. Your booking ID is {booking_id}."
-        else:
-            return "Selected time slot is not available."
+    public Booking(int numberOfGuests, Date bookingDate, Date bookingTime, int customerID) {
+        this.numberOfGuests = numberOfGuests;
+        this.bookingDate = bookingDate;
+        this.bookingTime = bookingTime;
+        this.customerID = customerID;
+        this.approved = false;
+    }
 
-    def cancel_booking(self, booking_id):
-        if booking_id in self.bookings:
-            self.bookings[booking_id]['status'] = 'cancelled'
-            return "Booking cancelled successfully."
-        else:
-            return "Booking ID not found."
+    // Getters and Setters
+    public int getNumberOfGuests() {
+        return numberOfGuests;
+    }
 
-    def check_availability(self, date, time, duration):
-        for booking in self.bookings.values():
-            if booking['date'] == date:
-                start_time = self.get_datetime(booking['time'])
-                end_time = start_time + duration
-                new_start_time = self.get_datetime(time)
-                new_end_time = new_start_time + duration
-                if start_time <= new_start_time < end_time or start_time < new_end_time <= end_time:
-                    return False
-        return True
+    public void setNumberOfGuests(int numberOfGuests) {
+        this.numberOfGuests = numberOfGuests;
+    }
 
-    def get_datetime(self, time_str):
-        return int(time_str.split(':')[0]) * 60 + int(time_str.split(':')[1])
-                }
+    public Date getBookingDate() {
+        return bookingDate;
+    }
 
+    public void setBookingDate(Date bookingDate) {
+        this.bookingDate = bookingDate;
+    }
 
+    public Date getBookingTime() {
+        return bookingTime;
+    }
+
+    public void setBookingTime(Date bookingTime) {
+        this.bookingTime = bookingTime;
+    }
+
+    public int getCustomerID() {
+        return customerID;
+    }
+
+    public void setCustomerID(int customerID) {
+        this.customerID = customerID;
+    }
+
+    public boolean isApproved() {
+        return approved;
+    }
+
+    public void setApproved(boolean approved) {
+        this.approved = approved;
+    }
+}
