@@ -1,17 +1,13 @@
-
 import java.util.*;
 import java.util.stream.Collectors;
 
-
-// Menu And MenuItems are in same file
-// Menu class
+// Menu class 
 public class Menu {
     private List<MenuItem> menuItems;
     private List<Order> allOrders;
 
     public Menu() {
         this.menuItems = new ArrayList<>();
-        this.allOrders = new ArrayList<>();
     }
 
     public void addMenuItem(MenuItem item) {
@@ -22,18 +18,8 @@ public class Menu {
         menuItems.remove(item);
     }
 
-    public void updateMenuItem(MenuItem item) {
-        for (MenuItem menuItem : menuItems) {
-            if (menuItem.getItemName().equals(item.getItemName())) {
-                menuItem.setDescription(item.getDescription());
-                menuItem.setPrice(item.getPrice());
-                break;
-            }
-        }
-    }
-
     // To get daily speacial items 
-    public List<MenuItem> getDailySpecials() {
+    public List<MenuItem> getSpecials() {
         return menuItems.stream()
                 .filter(MenuItem::isSpecial)
                 .collect(Collectors.toList());
@@ -58,46 +44,6 @@ public class Menu {
                 .collect(Collectors.toList());
 
         return new Report(popularItems);
-    }
-
-    // MenuItem class
-    private class MenuItem {
-        private String itemName;
-        private String description;
-        private double price;
-        private boolean special;
-
-        public MenuItem(String itemName, String description, double price, boolean special) {
-            this.itemName = itemName;
-            this.description = description;
-            this.price = price;
-            this.special = special;
-        }
-        
-        // getter and setter methods of the MenuItem class
-        public boolean isSpecial() {
-            return special;
-        }
-
-        public String getItemName() {
-            return itemName;
-        }
-
-        public String getDescription() {
-            return description;
-        }
-
-        public double getPrice() {
-            return price;
-        }
-
-        public void setDescription(String description) {
-            this.description = description;
-        }
-
-        public void setPrice(double price) {
-            this.price = price;
-        }
     }
 
     // Order class
