@@ -22,14 +22,17 @@ public class Customer extends User {
    public int getCustomerId() {
       return customerId;
    }
-   //create order, might be best to do 4 different order creation methods
-   public  Order createOrder () {
-      return new Order();
+
+   //create order
+   public  Order createTakeAway () {
+      return new TakeOut();
    }
+
    //add to previous orders list
    public void addPreviousOrder(Order order) {
       previousOrders.add(order);
   }
+
 //Show order history
   public List<Order> getOrderHistory() {
       return previousOrders;

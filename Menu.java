@@ -20,17 +20,29 @@ public class Menu {
     }
 
     public void updateMenuItem(MenuItem item) {
-       
+        // Add logic to update menu item
+    }
+
+    public List<MenuItem> getMenuItems() {
+        return new ArrayList<>(menuItems);
+    }
+
+    public void addDailySpecial(MenuItem item) {
+        dailySpecials.add(item);
+    }
+
+    public void removeDailySpecial(MenuItem item) {
+        dailySpecials.remove(item);
     }
 
     public List<MenuItem> getDailySpecials() {
         return new ArrayList<>(dailySpecials);
     }
 
-    public Report generatePopularItemsReport() {
+    //public Report generatePopularItemsReport() { commented out because wouldn't complie
         
-        return new Report();
-    }
+        //return new Report();
+    //}
 
 
 }
