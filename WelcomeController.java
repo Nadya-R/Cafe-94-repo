@@ -20,15 +20,13 @@ public void switchToCusterView(javafx.event.ActionEvent actionEvent) throws IOEx
     stage.setScene(scene);
     stage.show();
 }
-//need to create Staf view
 
-
-   /* public void switchToWelcomeView(javafx.event.ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Welcome.fxml"));
-        stage = (Stage)((Node) actionEvent.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }*/
+public void switchToStaffView(javafx.event.ActionEvent actionEvent) throws IOException {
+    Parent root = FXMLLoader.load(getClass().getResource("StaffScene.fxml"));
+    stage = (Stage)((Node) actionEvent.getSource()).getScene().getWindow();
+    scene = new Scene(root);
+    stage.setScene(scene);
+    stage.show();
+}
 }
 
