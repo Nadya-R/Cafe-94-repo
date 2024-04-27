@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 public class Menu {
     private List<MenuItem> menuItems;
     private List<Order> allOrders;
+    private List<MenuItem> dailySpecials;
 
     public Menu() {
         this.menuItems = new ArrayList<>();

@@ -3,18 +3,18 @@ public class MenuItem {
     private String itemName;
     private String description;
     private double price;
-    private boolean special;
+    private boolean dailySpecials;
 
-    public MenuItem(String itemName, String description, double price, boolean special) {
+    public MenuItem(String itemName, String description, double price, boolean dailySpecials) {
         this.itemName = itemName;
         this.description = description;
         this.price = price;
-        this.special = special;
+        this.dailySpecials = dailySpecials;
     }
     
     // getter and setter methods of the MenuItem class
     public boolean isSpecial() {
-        return special;
+        return dailySpecials;
     }
 
     public String getItemName() {
