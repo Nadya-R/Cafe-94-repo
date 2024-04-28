@@ -30,24 +30,23 @@ public class EatInFunction extends Application {
         MenuItem pizza = new MenuItem("Pizza", "Tasty pizza with various toppings", 8.99);
         MenuItem fries = new MenuItem("Fries", "Crispy french fries", 2.49);
 
-        // Add buttons for menu items
+
         Button burgerButton = new Button(burger.getItemName() + " - £" + burger.getPrice());
         Button pizzaButton = new Button(pizza.getItemName() + " - £" + pizza.getPrice());
         Button friesButton = new Button(fries.getItemName() + " - £" + fries.getPrice());
 
-        // Set actions for menu item buttons
+
         burgerButton.setOnAction(event -> {
-            // Add logic to add burger to order
+
             System.out.println("Burger added to order");
         });
 
         pizzaButton.setOnAction(event -> {
-            // Add logic to add pizza to order
             System.out.println("Pizza added to order");
         });
 
         friesButton.setOnAction(event -> {
-            // Add logic to add fries to order
+
             System.out.println("Fries added to order");
         });
 
@@ -71,14 +70,14 @@ public class EatInFunction extends Application {
         });
         Button orderButton = new Button("Place Order");
         orderButton.setOnAction(event -> {
-            // Add logic to place order for Eat In
+
             double totalCost = burger.getPrice() + pizza.getPrice() + fries.getPrice(); // Calculate total cost
             System.out.println("Order placed for Eat In. Total cost: £" + totalCost);
         });
 
         Button backButton = new Button("Back");
         backButton.setOnAction(event -> {
-            // Add logic to go back to previous screen
+
             System.out.println("Back button clicked");
         });
 
