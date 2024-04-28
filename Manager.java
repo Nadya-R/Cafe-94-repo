@@ -4,7 +4,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.util.List;
+
 public class Manager extends Staff {
+
 
 
         //constructor
@@ -14,12 +17,18 @@ public class Manager extends Staff {
 
         //method to create new chef
     public Chef createChef(String firstName, String lastName, String address, String postCode) {
-        return new Chef(firstName, lastName, address, postCode);
+        Chef chef = new Chef(firstName, lastName, address, postCode);
+        addStaffMember(chef);
+        return chef;
+
     }
+
 
     // Method to create a new Waiter
     public Waiter createWaiter(String firstName, String lastName, String address, String postCode) {
-        return new Waiter(firstName, lastName, address, postCode);
+        Waiter waiter = new Waiter(firstName, lastName, address, postCode);
+        addStaffMember(waiter);
+        return waiter;
     }
 
     }

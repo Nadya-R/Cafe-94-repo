@@ -5,14 +5,14 @@ public class ManagerController {
 
 
     @FXML
-    private Label name;  // Make sure to properly annotate the variables with @FXML
+    private Label name; 
     @FXML
     private Label address;
     @FXML
     private Label postCode;
 
     public void initialize() {
-        // Fetch manager's information using the constructor
+        
         Manager manager = new Manager("Peter", "Parker", "20 Ingram St.", "NY");
 
 
