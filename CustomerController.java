@@ -38,4 +38,11 @@ public class CustomerController {
     }
 
 
+    public void EatInFunction(ActionEvent actionEvent) {
+        EatInFunction eatInFunction = new EatInFunction();
+        Stage newStage = new Stage();
+        eatInFunction.start(newStage);
+        // Hide the current window
+        ((Node) actionEvent.getSource()).getScene().getWindow().hide();
+    }
 }
