@@ -9,7 +9,13 @@ import javafx.scene.control.TextArea;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Food ordering app.
+ */
 public class FoodOrderingApp extends Application {
+    /**
+     * The Food ordering system.
+     */
     FoodOrderingSystem foodOrderingSystem;
     private Order currentOrder;
     private List<Order> orderHistory;
@@ -100,6 +106,11 @@ public class FoodOrderingApp extends Application {
         primaryStage.show();
     }
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
 
         launch(args);

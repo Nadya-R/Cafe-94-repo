@@ -110,7 +110,17 @@ public class EatInFunction extends Application {
             }
 
             System.out.println("Order placed for Eat In. Total cost: £" + totalCost);
+            int tableNumber;
+            try {
+                tableNumber = Integer.parseInt(tableNumberField.getText());
+                OrderPopupDone(tableNumber, totalCost);
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid table number format.");
+            }
+
         });
+
+
 
         Button backButton = new Button("Back");
         backButton.setOnAction(event -> {
@@ -130,6 +140,7 @@ public class EatInFunction extends Application {
         // Adding components to root
         root.getChildren().addAll(eatInLabel, special1Button, special2Button, burgerButton, pizzaButton, friesButton, tableNumberField, selectTableButton, orderButton, backButton);
 
+
         // Setting scene and stage
         Scene scene = new Scene(root, 300, 400);
         primaryStage.setTitle("Eat In Option");
@@ -137,13 +148,15 @@ public class EatInFunction extends Application {
         primaryStage.show();
     }
 
-    private void OrderPopupDone(int tableNumber, int totalCost) {
+    private void OrderPopupDone(int tableNumber, double totalCost) {
         Stage popupStage = new Stage();
         popupStage.setTitle("Order Done");
         VBox popupRoot = new VBox(10);
         popupRoot.setPadding(new Insets(10));
-        Label orderDoneLabel = new Label("Order for Table" + tableNumber + totalCost + "is completed");
-        popupRoot.getChildren().addAll(orderDoneLabel);
+        Label orderDoneLabel = new Label("Order for Table " + tableNumber + " is completed.\nTotal cost: £" + totalCost);
+        Button closeButton = new Button("Close");
+        closeButton.setOnAction(event -> popupStage.close());
+        popupRoot.getChildren().addAll(orderDoneLabel, closeButton);
         Scene popupScene = new Scene(popupRoot, 250, 200);
         popupStage.setScene(popupScene);
         popupStage.show();
