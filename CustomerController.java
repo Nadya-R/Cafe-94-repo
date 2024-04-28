@@ -1,3 +1,4 @@
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -26,4 +27,15 @@ public class CustomerController {
         foodOrderingApp.start(newStage);
         ((Node) actionEvent.getSource()).getScene().getWindow().hide();
     }
+
+    public void Deliver(javafx.event.ActionEvent actionEvent) throws IOException {
+        // Assuming you have a DeliveryApp class
+        Deliver deliver = new Deliver();
+        Stage newStage = new Stage();
+        deliver.start(newStage);
+        // Hide the current window
+        ((Node) actionEvent.getSource()).getScene().getWindow().hide();
+    }
+
+
 }
