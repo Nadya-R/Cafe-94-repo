@@ -17,11 +17,12 @@ public class Order {
     }
 
     public double getTotal() {
-        double total = 0;
-        for (MenuItem item : items) {
-            total += item.getPrice();
-        }
-        return total;
+        return 0;
     }
-    
+
+    public void setDeliveryAddress(String deliveryAddress) {
+    }
+
+    public void setCompleted(boolean b) {
+    }
 }

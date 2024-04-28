@@ -24,9 +24,9 @@ public class FoodOrderingApp extends Application {
         menu = new Menu();
 
         // Creating menu items
-        MenuItem burger = new MenuItem("Burger", "Delicious beef burger", 5.99,true);
-        MenuItem pizza = new MenuItem("Pizza", "Tasty pizza with various toppings", 8.99,true);
-        MenuItem fries = new MenuItem("Fries", "Crispy french fries", 2.49,true);
+        MenuItem burger = new MenuItem("Burger", "Delicious beef burger", 5.99);
+        MenuItem pizza = new MenuItem("Pizza", "Tasty pizza with various toppings", 8.99);
+        MenuItem fries = new MenuItem("Fries", "Crispy french fries", 2.49);
 
         // Adding menu items to the menu
         menu.addMenuItem(burger);
@@ -34,8 +34,8 @@ public class FoodOrderingApp extends Application {
         menu.addMenuItem(fries);
 
         // Adding daily specials
-        MenuItem special1 = new MenuItem("Special 1", "Special dish of the day", 10.99,true);
-        MenuItem special2 = new MenuItem("Special 2", "Another special dish", 12.99,true);
+        MenuItem special1 = new MenuItem("Special 1", "Special dish of the day", 10.99);
+        MenuItem special2 = new MenuItem("Special 2", "Another special dish", 12.99);
         menu.addDailySpecial(special1);
         menu.addDailySpecial(special2);
 

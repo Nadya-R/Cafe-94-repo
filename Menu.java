@@ -1,14 +1,14 @@
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.List;
 
-// Menu class 
+// Menu class
 public class Menu {
     private List<MenuItem> menuItems;
-    private List<Order> allOrders;
     private List<MenuItem> dailySpecials;
 
     public Menu() {
         this.menuItems = new ArrayList<>();
+        this.dailySpecials = new ArrayList<>();
     }
 
     public void addMenuItem(MenuItem item) {
@@ -40,33 +40,9 @@ public class Menu {
     }
 
     //public Report generatePopularItemsReport() { commented out because wouldn't complie
-        
-        //return new Report();
+
+    //return new Report();
     //}
 
-    // Order class
-    private class Order {
-        private List<MenuItem> items;
 
-        public Order(List<MenuItem> items) {
-            this.items = items;
-        }
-
-        public List<MenuItem> getItems() {
-            return items;
-        }
-    }
-
-    // Report class
-    private class Report {
-        private List<MenuItem> popularItems;
-
-        public Report(List<MenuItem> popularItems) {
-            this.popularItems = popularItems;
-        }
-
-        public List<MenuItem> getPopularItems() {
-            return popularItems;
-        }
-    }
 }
