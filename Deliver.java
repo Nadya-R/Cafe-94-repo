@@ -3,11 +3,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Deliver extends Application {
     private Delivery deliveryService;
@@ -23,6 +25,12 @@ public class Deliver extends Application {
         deliveryService = new Delivery();
         orderHistory = new ArrayList<>();
         menu = new Menu();
+
+        Image iconImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/shop.png")));
+
+        // Set the icon for the primary stage
+        primaryStage.getIcons().add(iconImage);
+
 
         // Creating menu items
         MenuItem burger = new MenuItem("Burger", "Delicious beef burger", 5.99);

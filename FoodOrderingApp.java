@@ -5,7 +5,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.scene.control.TextArea;
+
+import javafx.scene.image.Image;
+
+import java.util.*;
+
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +33,11 @@ public class FoodOrderingApp extends Application {
         foodOrderingSystem = new FoodOrderingSystem();
         orderHistory = new ArrayList<>();
         menu = new Menu();
+
+        Image iconImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/shop.png")));
+
+        // Set the icon for the primary stage
+        primaryStage.getIcons().add(iconImage);
 
         // Creating menu items
         MenuItem burger = new MenuItem("Burger", "Delicious beef burger", 5.99);
@@ -99,9 +109,11 @@ public class FoodOrderingApp extends Application {
         //adding labels and order button to root
         root.getChildren().add(placeOrderButton);
 
+
         //setting stage
         Scene scene = new Scene(root, 400, 400);
         primaryStage.setTitle("Food Ordering App");
+        primaryStage.getIcons().add(iconImage);
         primaryStage.setScene(scene);
         primaryStage.show();
     }

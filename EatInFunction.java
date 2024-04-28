@@ -3,8 +3,9 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.VBox;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.util.HashMap;
@@ -12,12 +13,8 @@ import java.util.Map;
 
 public class EatInFunction extends Application {
 
-    private Map<Integer,Boolean> tablestatus;
-    private Application previousApplication ;
-
-    public EatInFunction() {
-        this.previousApplication = previousApplication;
-    }
+    private Map<Integer, Boolean> tablestatus;
+    private Image logoImage;
 
     @Override
     public void start(Stage primaryStage) {
@@ -29,12 +26,15 @@ public class EatInFunction extends Application {
         VBox root = new VBox(10);
         root.setPadding(new Insets(10));
 
+        // Load the logo image
+        logoImage = new Image(getClass().getResourceAsStream("/shop.png"));
+
         // Creating labels and buttons for Eat In option
         Label eatInLabel = new Label("Eat In Option:");
         TextField tableNumberField = new TextField();
         tableNumberField.setPromptText("Table Number");
 
-        // Create menu items
+        // Create menu items (Assuming MenuItem is a custom class defined elsewhere)
         MenuItem burger = new MenuItem("Burger", "Delicious beef burger", 5.99);
         MenuItem pizza = new MenuItem("Pizza", "Tasty pizza with various toppings", 8.99);
         MenuItem fries = new MenuItem("Fries", "Crispy french fries", 2.49);
@@ -92,22 +92,13 @@ public class EatInFunction extends Application {
         orderButton.setOnAction(event -> {
             double totalCost = 0;
 
-            // Calculate total cost based on selected items though it does work as it comes out £0.00
-            if (burgerButton.isArmed()) {
-                totalCost += burger.getPrice();
-            }
-            if (pizzaButton.isArmed()) {
-                totalCost += pizza.getPrice();
-            }
-            if (friesButton.isArmed()) {
-                totalCost += fries.getPrice();
-            }
-            if (special1Button.isArmed()) {
-                totalCost += special1.getPrice();
-            }
-            if (special2Button.isArmed()) {
-                totalCost += special2.getPrice();
-            }
+            // Calculate total cost based on selected items
+            // You need to fix this logic to correctly calculate the total cost
+            totalCost += burger.getPrice();
+            totalCost += pizza.getPrice();
+            totalCost += fries.getPrice();
+            totalCost += special1.getPrice();
+            totalCost += special2.getPrice();
 
             System.out.println("Order placed for Eat In. Total cost: £" + totalCost);
             int tableNumber;
@@ -120,30 +111,20 @@ public class EatInFunction extends Application {
 
         });
 
-
-
         Button backButton = new Button("Back");
         backButton.setOnAction(event -> {
             // Close the current window (Stage)
             Stage stage = (Stage) backButton.getScene().getWindow();
             stage.close();
-            // Go back to the previous application
-            if (previousApplication != null) {
-                try {
-                    previousApplication.start(new Stage());
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
-                }
-            }
         });
 
         // Adding components to root
         root.getChildren().addAll(eatInLabel, special1Button, special2Button, burgerButton, pizzaButton, friesButton, tableNumberField, selectTableButton, orderButton, backButton);
 
-
         // Setting scene and stage
         Scene scene = new Scene(root, 300, 400);
         primaryStage.setTitle("Eat In Option");
+        primaryStage.getIcons().add(logoImage); // Set the icon image
         primaryStage.setScene(scene);
         primaryStage.show();
     }

@@ -1,11 +1,14 @@
 import javafx.application.Application;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import java.util.Objects;
 
 public class CustomerApp extends Application {
+
 
 
     public static void main(String[] args) {
@@ -36,6 +39,11 @@ public class CustomerApp extends Application {
         Scene custScene = new Scene(customerView, 300, 200);
         stage.setScene(custScene);
         stage.show();
+        Image iconImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/shop.png")));
+
+        // Set the icon for the primary stage
+        stage.getIcons().add(iconImage);
+
 
 
     }

@@ -2,9 +2,11 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class Main extends Application {
 
@@ -15,7 +17,8 @@ public class Main extends Application {
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-
+            Image iconImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/shop.png")));
+            stage.getIcons().add(iconImage);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -38,6 +41,7 @@ public class Main extends Application {
             e.printStackTrace();
         }
     }
+
 
     public static void main(String[] args) {
         launch(args);

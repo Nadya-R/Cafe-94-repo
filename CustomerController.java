@@ -45,4 +45,6 @@ public class CustomerController {
         // Hide the current window
         ((Node) actionEvent.getSource()).getScene().getWindow().hide();
     }
+
+
 }

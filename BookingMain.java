@@ -19,5 +19,6 @@ public class BookingMain {
         System.out.println("Total Cost Calculation: " + booking.calculateTotalCost());
         System.out.println("Service Info: " + booking.provideServiceInfo());
         booking.handleBookingChanges();
+
     }
 }
