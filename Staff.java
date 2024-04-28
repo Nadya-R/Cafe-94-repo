@@ -14,11 +14,22 @@ public class Staff extends User {
     private ArrayList<Double> hoursWorked;
     private ArrayList<Double> overTimeWorked;
 
-    // basic constructor in order to use this class as a super
-    Staff() {
-        hoursWorked = new ArrayList<>();
-        overTimeWorked = new ArrayList<>();
+        //default constructor in order to extend to subclasses
+    public Staff() {
+        // Default constructor
     }
+
+    public Staff (String firstName, String lastName, String address, String postCode) {
+        super(firstName, lastName, address, postCode);;
+    }
+
+    // constructor in order to use this class as a super
+    //public Staff (String firstName, String lastName, String address, String postCode) {
+       // super(firstName, lastName, address, postCode);;
+        //hoursWorked = new ArrayList<>();
+        //overTimeWorked = new ArrayList<>();
+   // }
+
 
     // set hours to work for the month or whatever
     public void setHours(double hours) {
