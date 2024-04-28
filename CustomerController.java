@@ -38,7 +38,7 @@ public class CustomerController {
     }
 
 
-    public void EatInFunction(ActionEvent actionEvent) {
+    public void EatInFunction(ActionEvent actionEvent) throws IOException  {
         EatInFunction eatInFunction = new EatInFunction();
         Stage newStage = new Stage();
         eatInFunction.start(newStage);

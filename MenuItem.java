@@ -3,6 +3,7 @@ public class MenuItem {
     private String itemName;
     private String description;
     private double price;
+    private boolean dailyspecial;
 
 
     public MenuItem(String itemName, String description, double price) {
@@ -35,4 +36,11 @@ public class MenuItem {
         this.price = price;
     }
 
+    public boolean isDailyspecial() {
+        return dailyspecial;
+    }
+
+    public boolean isPressed() {
+        return true;
+    }
 }
