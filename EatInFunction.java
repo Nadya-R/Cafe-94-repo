@@ -1,5 +1,7 @@
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -8,20 +10,27 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class EatInFunction extends Application {
 
-    private Map<Integer, Boolean> tablestatus;
+    private Map<Integer, Boolean> tableStatus;
     private Image logoImage;
+    private List<MenuItem> selectedItems;
+    private double totalCost;
 
     @Override
     public void start(Stage primaryStage) {
-        tablestatus = new HashMap<>();
-        for (int i = 1; i <= 27; i++) {
-            tablestatus.put(i, false);
+        tableStatus = new HashMap<>();
+        for (int i = 1; i <= 11; i++) {
+            tableStatus.put(i, false);
         }
+        selectedItems = new ArrayList<>();
 
         VBox root = new VBox(10);
         root.setPadding(new Insets(10));
@@ -51,33 +60,38 @@ public class EatInFunction extends Application {
         // Event handlers for menu item buttons
         burgerButton.setOnAction(event -> {
             System.out.println("Burger added to order");
+            selectedItems.add(burger);
         });
 
         pizzaButton.setOnAction(event -> {
             System.out.println("Pizza added to order");
+            selectedItems.add(pizza);
         });
 
         friesButton.setOnAction(event -> {
             System.out.println("Fries added to order");
+            selectedItems.add(fries);
         });
 
         special1Button.setOnAction(event -> {
             System.out.println("Special 1 added to order");
+            selectedItems.add(special1);
         });
 
         special2Button.setOnAction(event -> {
             System.out.println("Special 2 added to order");
+            selectedItems.add(special2);
         });
 
         Button selectTableButton = new Button("Select Table");
         selectTableButton.setOnAction(event -> {
             try {
                 int tableNumber = Integer.parseInt(tableNumberField.getText());
-                if (tablestatus.containsKey(tableNumber)) {
-                    if (tablestatus.get(tableNumber)) {
+                if (tableStatus.containsKey(tableNumber)) {
+                    if (tableStatus.get(tableNumber)) {
                         System.out.println("Table " + tableNumber + " is already occupied.");
                     } else {
-                        tablestatus.put(tableNumber, true);
+                        tableStatus.put(tableNumber, true);
                         System.out.println("Table " + tableNumber + " selected for Eat In.");
                     }
                 } else {
@@ -90,32 +104,24 @@ public class EatInFunction extends Application {
 
         Button orderButton = new Button("Place Order");
         orderButton.setOnAction(event -> {
-            double totalCost = 0;
-
-            // Calculate total cost based on selected items
-            // You need to fix this logic to correctly calculate the total cost
-            totalCost += burger.getPrice();
-            totalCost += pizza.getPrice();
-            totalCost += fries.getPrice();
-            totalCost += special1.getPrice();
-            totalCost += special2.getPrice();
-
-            System.out.println("Order placed for Eat In. Total cost: £" + totalCost);
             int tableNumber;
             try {
                 tableNumber = Integer.parseInt(tableNumberField.getText());
-                OrderPopupDone(tableNumber, totalCost);
+                handleOrderPlacement(tableNumber);
             } catch (NumberFormatException e) {
                 System.out.println("Invalid table number format.");
             }
-
         });
 
         Button backButton = new Button("Back");
         backButton.setOnAction(event -> {
-            // Close the current window (Stage)
-            Stage stage = (Stage) backButton.getScene().getWindow();
-            stage.close();
+            try {
+                Parent rootWelcome = FXMLLoader.load(getClass().getResource("CustomerScene.fxml"));
+                Scene welcomeScene = new Scene(rootWelcome);
+                primaryStage.setScene(welcomeScene);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         });
 
         // Adding components to root
@@ -129,19 +135,40 @@ public class EatInFunction extends Application {
         primaryStage.show();
     }
 
-    private void OrderPopupDone(int tableNumber, double totalCost) {
-        Stage popupStage = new Stage();
-        popupStage.setTitle("Order Done");
-        VBox popupRoot = new VBox(10);
-        popupRoot.setPadding(new Insets(10));
-        Label orderDoneLabel = new Label("Order for Table " + tableNumber + " is completed.\nTotal cost: £" + totalCost);
-        Button closeButton = new Button("Close");
-        closeButton.setOnAction(event -> popupStage.close());
-        popupRoot.getChildren().addAll(orderDoneLabel, closeButton);
-        Scene popupScene = new Scene(popupRoot, 250, 200);
-        popupStage.setScene(popupScene);
-        popupStage.show();
+    private void handleOrderPlacement(int tableNumber) {
+        totalCost = calculateTotalCost(selectedItems);
+        System.out.println("Order placed for Eat In. Total cost: £" + totalCost);
+        OrderPopupDone(tableNumber, totalCost);
+        selectedItems.clear(); // Reset selected items
     }
+
+    private double calculateTotalCost(List<MenuItem> items) {
+        double totalCost = 0;
+        for (MenuItem item : items) {
+            totalCost += item.getPrice();
+        }
+        return totalCost;
+    }
+
+    private void OrderPopupDone(int tableNumber, double totalCost) {
+
+            Image logoImage = new Image(getClass().getResourceAsStream("/shop.png"));
+
+
+
+            Stage popupStage = new Stage();
+            popupStage.setTitle("Order Done");
+            popupStage.getIcons().add(logoImage); // Set the icon image
+            VBox popupRoot = new VBox(10);
+            popupRoot.setPadding(new Insets(10));
+            Label orderDoneLabel = new Label("Order for Table " + tableNumber + " is completed.\nTotal cost: £" + totalCost);
+            Button closeButton = new Button("Close");
+            closeButton.setOnAction(event -> popupStage.close());
+            popupRoot.getChildren().addAll(orderDoneLabel, closeButton);
+            Scene popupScene = new Scene(popupRoot, 250, 200);
+            popupStage.setScene(popupScene);
+            popupStage.show();
+        }
 
     public static void main(String[] args) {
         launch(args);
