@@ -53,6 +53,7 @@ public class Staff extends User {
             System.out.println("Name: " + staffMember.getFirstName() + " " + staffMember.getLastName());
             System.out.println("Address: " + staffMember.getAddress());
             System.out.println("Post Code: " + staffMember.getPostCode());
+            System.out.println();
         }
 
     }

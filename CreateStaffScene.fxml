@@ -37,11 +37,11 @@
          <Font size="18.0" />
       </font>
    </Label>
-   <TextField layoutX="265.0" layoutY="219.0" prefHeight="25.0" prefWidth="328.0" />
-   <TextField layoutX="265.0" layoutY="288.0" prefHeight="25.0" prefWidth="328.0" />
-   <TextField layoutX="265.0" layoutY="356.0" prefHeight="25.0" prefWidth="328.0" />
-   <TextField layoutX="265.0" layoutY="421.0" prefHeight="25.0" prefWidth="328.0" />
-   <Button layoutX="293.0" layoutY="513.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="114.0" text="Create">
+   <TextField fx:id="firstNameField" layoutX="265.0" layoutY="219.0" prefHeight="25.0" prefWidth="328.0" />
+   <TextField fx:id="lastNameField" layoutX="265.0" layoutY="288.0" prefHeight="25.0" prefWidth="328.0" />
+   <TextField fx:id="addressField" layoutX="265.0" layoutY="356.0" prefHeight="25.0" prefWidth="328.0" />
+   <TextField fx:id="postCodeField" layoutX="265.0" layoutY="421.0" prefHeight="25.0" prefWidth="328.0" />
+   <Button layoutX="293.0" layoutY="513.0" mnemonicParsing="false" onAction="#handleCreateButton" prefHeight="25.0" prefWidth="114.0" text="Create">
       <font>
          <Font size="18.0" />
       </font>

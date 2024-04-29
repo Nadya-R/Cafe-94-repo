@@ -11,7 +11,7 @@
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="398.0" layoutY="354.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="200.0" text="Manager">
+      <Button layoutX="398.0" layoutY="354.0" mnemonicParsing="false" onAction="#switchToMangerView" prefHeight="200.0" prefWidth="200.0" text="Manager">
          <font>
             <Font size="24.0" />
          </font>

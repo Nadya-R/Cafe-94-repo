@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
 
-<VBox xmlns="http://javafx.com/javafx"
-      xmlns:fx="http://javafx.com/fxml"
-      fx:controller="ManagerController"
-      prefWidth="300" prefHeight="200">
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
 
-    <Label style="-fx-font-size: 18pt;" text="Manager Profile" />
-
-    <Label text="Name:" />
-    <Label fx:id="name" />
-
-    <Label text="Address:" />
-    <Label fx:id="address" />
-
-    <Label text="Postal Code:" />
-    <Label fx:id="postCode" />
-
-</VBox>
+<SplitPane dividerPositions="0.3969849246231156" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ManagerTopController">
+    <items>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+         <children>
+            <Button layoutX="30.0" layoutY="25.0" mnemonicParsing="false" onAction="#switchToWelcomeView" text="Back" />
+            <Button layoutX="30.0" layoutY="92.0" mnemonicParsing="false" onAction="#handleAddStaff" prefHeight="25.0" prefWidth="103.0" text="Add Staff" />
+            <Button layoutX="180.0" layoutY="92.0" mnemonicParsing="false" onAction="#switchToStaffProfiles" prefHeight="25.0" prefWidth="103.0" text="Profiles" />
+            <Button layoutX="313.0" layoutY="92.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Remove Staff" />
+            <Button layoutX="456.0" layoutY="92.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Reports" />
+         </children></AnchorPane>
+        <!-- Include the manager profile UI -->
+        <fx:include source="ManagerProfile.fxml" />
+    </items>
+</SplitPane>

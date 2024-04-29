@@ -13,6 +13,7 @@ import java.util.Optional;
 public class ManagerTopController {
     private Scene scene;
 
+    //controls for back button
     @FXML
     public void switchToWelcomeView(javafx.event.ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Welcome.fxml"));
@@ -22,6 +23,7 @@ public class ManagerTopController {
         stage.show();
     }
 
+    //method that determines whether waiter or chef is created
     @FXML
     public void handleAddStaff(javafx.event.ActionEvent actionEvent) {
         Alert whichStaff = new Alert(Alert.AlertType.CONFIRMATION);
@@ -38,32 +40,37 @@ public class ManagerTopController {
         Stage stage = (Stage) whichStaff.getDialogPane().getScene().getWindow();
         stage.setAlwaysOnTop(true);
 
-        //showAndWait() used to handle what happens when the button is pressed, currently a message is printed to terminal. I need to
-        //create interfaces to collect information on staff and create staff instance using this
+        //showAndWait() used to handle what happens when the button is pressed.
         Optional<ButtonType> result = whichStaff.showAndWait();
         if (result.isPresent()) {
             if (result.get() == waiterButton) {
-                // Handle Waiter creation
-                System.out.println("Create page to handle waiter creation");
                 //opens the app and passes staff type to role
                 Main.openCreateStaffScene("Waiter");
                 //closes current window
                 Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
                 currentStage.close();
 
-
             } else if (result.get() == chefButton) {
                 // Handle Chef creation
-                System.out.println("Create page to handle chef creation");
                 Main.openCreateStaffScene("Chef");
-                //closes current window
                 Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
                 currentStage.close();
 
 
-
             }
 
+
         }
+
+
+    }
+
+    @FXML
+    public void switchToStaffProfiles(javafx.event.ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("StaffProfilesScene.fxml"));
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }
