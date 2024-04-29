@@ -25,7 +25,7 @@ public class FoodOrderingSystem {
         // In a real system, you would implement logic to process the order,
         // such as notifying the kitchen staff, deducting items from inventory, etc.
         System.out.println("Order placed successfully!");
-        System.out.println("Total amount: $" + order.getTotal());
+        System.out.println("Total amount: £" + order.getTotal());
     }
 }
 

@@ -1,4 +1,6 @@
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -8,6 +10,7 @@ import javafx.stage.Stage;
 
 import javafx.scene.image.Image;
 
+import java.io.IOException;
 import java.util.*;
 
 import java.awt.*;
@@ -109,14 +112,28 @@ public class FoodOrderingApp extends Application {
         //adding labels and order button to root
         root.getChildren().add(placeOrderButton);
 
+        Button backButton = new Button("Back");
+        backButton.setOnAction(event -> {
+            try {
+                Parent rootWelcome = FXMLLoader.load(getClass().getResource("CustomerScene.fxml"));
+                Scene welcomeScene = new Scene(rootWelcome);
+                primaryStage.setScene(welcomeScene);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        root.getChildren().add(backButton);
 
         //setting stage
         Scene scene = new Scene(root, 400, 400);
+        scene.getStylesheets().add(getClass().getResource("W.css").toExternalForm()); //
         primaryStage.setTitle("Food Ordering App");
         primaryStage.getIcons().add(iconImage);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+
+
 
     /**
      * The entry point of application.

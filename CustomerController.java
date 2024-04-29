@@ -17,6 +17,7 @@ public class CustomerController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        scene.getStylesheets().add(getClass().getResource("W.css").toExternalForm()); //
     }
 //only open food syste- seperate delivery system not set
     public void openFoodSystem (javafx.event.ActionEvent actionEvent) throws IOException {

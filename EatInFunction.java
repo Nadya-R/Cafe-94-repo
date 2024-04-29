@@ -39,7 +39,7 @@ public class EatInFunction extends Application {
         logoImage = new Image(getClass().getResourceAsStream("/shop.png"));
 
         // Creating labels and buttons for Eat In option
-        Label eatInLabel = new Label("Eat In Option:");
+        Label eatInLabel = new Label("Menu:");
         TextField tableNumberField = new TextField();
         tableNumberField.setPromptText("Table Number");
 
@@ -129,10 +129,13 @@ public class EatInFunction extends Application {
 
         // Setting scene and stage
         Scene scene = new Scene(root, 300, 400);
+        scene.getStylesheets().add(getClass().getResource("W.css").toExternalForm()); //
         primaryStage.setTitle("Eat In Option");
         primaryStage.getIcons().add(logoImage); // Set the icon image
         primaryStage.setScene(scene);
         primaryStage.show();
+
+
     }
 
     private void handleOrderPlacement(int tableNumber) {
@@ -153,8 +156,6 @@ public class EatInFunction extends Application {
     private void OrderPopupDone(int tableNumber, double totalCost) {
 
             Image logoImage = new Image(getClass().getResourceAsStream("/shop.png"));
-
-
 
             Stage popupStage = new Stage();
             popupStage.setTitle("Order Done");

@@ -1,0 +1,16 @@
+.root {
+    -fx-background-color: #e3f2fd; /* Set light blue background color for the root VBox */
+}
+
+.label {
+    -fx-font-size: 14pt; /* Set font size */
+}
+
+.button {
+    -fx-background-color: white; /* Set white background color for buttons */
+    -fx-text-fill: #000000; /* Set black text color for buttons */
+}
+
+.button:hover {
+    -fx-background-color: #f0f0f0; /* Set light gray background color for buttons on hover */
+}

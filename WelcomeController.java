@@ -14,6 +14,7 @@ public class WelcomeController {
     private Scene scene;
     private Parent root;
 
+
 @FXML
 public void switchToCusterView(javafx.event.ActionEvent actionEvent) throws IOException {
     Parent root = FXMLLoader.load(getClass().getResource("CustomerScene.fxml"));
@@ -33,6 +34,7 @@ public void switchToStaffView(javafx.event.ActionEvent actionEvent) throws IOExc
 
     // Set the icon for the primary stage
     stage.getIcons().add(iconImage);
+    scene.getStylesheets().add(getClass().getResource("W.css").toExternalForm()); //
 }
 }
 

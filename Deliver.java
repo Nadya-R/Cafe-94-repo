@@ -8,6 +8,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.animation.PauseTransition;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.time.LocalTime;
@@ -107,6 +109,7 @@ public class Deliver extends Application {
 
         // Set the stage
         Scene scene = new Scene(root, 400, 600);
+        scene.getStylesheets().add(getClass().getResource("W.css").toExternalForm()); //
         primaryStage.setTitle("Delivery App");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -139,6 +142,13 @@ public class Deliver extends Application {
                     currentOrder = null;
                     orderMessages.appendText("Order placed successfully! Total price: £" + String.format("%.2f", totalPrice) + "\n");
                     orderMessages.appendText("Estimated delivery time: " + estimatedDeliveryTime.format(DateTimeFormatter.ofPattern("HH:mm")) + "\n");
+
+                    // Add a 15-second delay before processing the order
+                    PauseTransition delay = new PauseTransition(Duration.seconds(15));
+                    delay.setOnFinished(e -> {
+                        processOrder();
+                    });
+                    delay.play();
                 } else {
                     orderMessages.appendText("Please enter the delivery address.\n");
                 }
@@ -147,6 +157,13 @@ public class Deliver extends Application {
             }
         });
         return placeOrderButton;
+    }
+
+    private void processOrder() {
+        // Simulate order processing
+        String processedOrderMessage = "Order processed at " + LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm"));
+        chefMessages.appendText(processedOrderMessage);
+
     }
 
     public static void main(String[] args) {
