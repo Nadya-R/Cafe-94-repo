@@ -12,8 +12,6 @@ import java.util.Objects;
 public class WelcomeController {
     private Stage stage;
     private Scene scene;
-    private Parent root;
-
 
 @FXML
 public void switchToCusterView(javafx.event.ActionEvent actionEvent) throws IOException {
