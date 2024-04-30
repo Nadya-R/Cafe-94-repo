@@ -2,7 +2,7 @@
 
 # Cafe94 Management System
 
-![1000_F_266356831_tt3aPib5A14WiRhb9PnsJZy1KxeRYcEI](https://github.com/Nadya-R/Cafe-94-repo/assets/116254945/1d9af302-e491-4e11-9385-1281fbf829db)
+![download](https://github.com/Nadya-R/Cafe-94-repo/assets/116254945/bd26b761-bfe4-4b27-be06-071174a90935)
 
 ![Static Badge](https://img.shields.io/badge/contributors-five-blue)
 
