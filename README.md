@@ -34,8 +34,8 @@ The Cafe94 Management System is a Java application designed to streamline the op
 2. Follow on-screen prompts to make bookings, place orders, manage staff, update menu items, host events, and generate reports.
 
 ## Contributors
-- Hari Sai Akhil PAmarthi
-- 
--
--
--
+- NADYA RODERICK
+- ITAJS BORS
+- AKHIL PAMARTHI
+- SREEKANTH MEKALA
+- SHARATH IPPAKAYALA 
