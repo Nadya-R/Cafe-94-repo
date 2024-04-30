@@ -1,7 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
 
-// Menu class
+/**
+ * The Menu class provides methods for creating and maintaining a menu of menuItems
+ * @author HARI SAI AKHIL PAMARTHI
+ */
 public class Menu {
     private List<MenuItem> menuItems;
     private List<MenuItem> dailySpecials;
@@ -39,7 +42,7 @@ public class Menu {
         return new ArrayList<>(dailySpecials);
     }
 
-    //public Report generatePopularItemsReport() { commented out because wouldn't complie
+    //public Report generatePopularItemsReport() { commented out because wouldn't compile. (Nadya XOXO)
 
     //return new Report();
     //}

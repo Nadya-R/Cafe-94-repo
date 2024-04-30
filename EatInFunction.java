@@ -9,16 +9,36 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * The EatInFunction class provides logic to the GUI used to make eat in orders.
+ * Users can select menu items, choose a table, and place orders.
+ * 
+ * <p>
+ * This class extends the Application class and provides the start method to
+ * initialize the GUI.
+ * It includes functionality to select a table, add menu items to the order, and
+ * place orders.
+ * </p>
+ * 
+ * <p>
+ * The GUI includes text fields for entering the table number, buttons for
+ * selecting tables, adding menu items to the order,
+ * placing orders, and navigating back to the previous scene. It also displays a
+ * popup window to confirm order placement.
+ * </p>
+ * @author Ty Bors
+ * @version 1.0
+ */
+
 public class EatInFunction extends Application {
 
+    // local fields
     private Map<Integer, Boolean> tableStatus;
     private Image logoImage;
     private List<MenuItem> selectedItems;
@@ -125,7 +145,8 @@ public class EatInFunction extends Application {
         });
 
         // Adding components to root
-        root.getChildren().addAll(eatInLabel, special1Button, special2Button, burgerButton, pizzaButton, friesButton, tableNumberField, selectTableButton, orderButton, backButton);
+        root.getChildren().addAll(eatInLabel, special1Button, special2Button, burgerButton, pizzaButton, friesButton,
+                tableNumberField, selectTableButton, orderButton, backButton);
 
         // Setting scene and stage
         Scene scene = new Scene(root, 300, 400);
@@ -135,42 +156,87 @@ public class EatInFunction extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
 
-
     }
 
+    /**
+     * <p>
+     * handleOrderPlacement is a method that calculates the total cost of items in
+     * an order
+     * and diplays a window pop up to confirm order
+     * 
+     * @param tableNumber The table number selected by customer
+     *                    </p>
+     */
     private void handleOrderPlacement(int tableNumber) {
         totalCost = calculateTotalCost(selectedItems);
         System.out.println("Order placed for Eat In. Total cost: £" + totalCost);
         OrderPopupDone(tableNumber, totalCost);
-        selectedItems.clear(); // Reset selected items
+        selectedItems.clear();
     }
 
+    /**
+     * <p>
+     * calculateTotalCost calculates total cost of order
+     * 
+     * @param items items from menu
+     * @return total cost is returned
+     *         </p>
+     */
     private double calculateTotalCost(List<MenuItem> items) {
         double totalCost = 0;
+        // iterates through list
         for (MenuItem item : items) {
+            // adds price of current item in iteration to totalCost
             totalCost += item.getPrice();
         }
         return totalCost;
     }
 
+    /**
+     * ,P.
+     * orderPopupDone display a message to confirm the order is complete
+     * 
+     * @param tableNumber table number selected by the customer
+     * @param totalCost   total cost of order
+     *                    </p>
+     */
     private void OrderPopupDone(int tableNumber, double totalCost) {
 
-            Image logoImage = new Image(getClass().getResourceAsStream("/shop.png"));
+        // creates Image and sets it to file path
+        Image logoImage = new Image(getClass().getResourceAsStream("/shop.png"));
+        // creates a stage
+        Stage popupStage = new Stage();
+        popupStage.setTitle("Order Done");
+        popupStage.getIcons().add(logoImage);
 
-            Stage popupStage = new Stage();
-            popupStage.setTitle("Order Done");
-            popupStage.getIcons().add(logoImage); // Set the icon image
-            VBox popupRoot = new VBox(10);
-            popupRoot.setPadding(new Insets(10));
-            Label orderDoneLabel = new Label("Order for Table " + tableNumber + " is completed.\nTotal cost: £" + totalCost);
-            Button closeButton = new Button("Close");
-            closeButton.setOnAction(event -> popupStage.close());
-            popupRoot.getChildren().addAll(orderDoneLabel, closeButton);
-            Scene popupScene = new Scene(popupRoot, 250, 200);
-            popupStage.setScene(popupScene);
-            popupStage.show();
-        }
+        // creates VBox
+        VBox popupRoot = new VBox(10);
+        popupRoot.setPadding(new Insets(10));
 
+        // Creates label
+        Label orderDoneLabel = new Label(
+                "Order for Table " + tableNumber + " is completed.\nTotal cost: £" + totalCost);
+
+        // creates button
+        Button closeButton = new Button("Close");
+        closeButton.setOnAction(event -> popupStage.close());
+
+        // adds elements to root
+        popupRoot.getChildren().addAll(orderDoneLabel, closeButton);
+
+        // creates and shows scene
+        Scene popupScene = new Scene(popupRoot, 250, 200);
+        popupStage.setScene(popupScene);
+        popupStage.show();
+    }
+
+    /**
+     * <p>
+     * Main mehtod that launches the application
+     * 
+     * @param args arguments passed through the main method
+     *             </p>
+     */
     public static void main(String[] args) {
         launch(args);
     }

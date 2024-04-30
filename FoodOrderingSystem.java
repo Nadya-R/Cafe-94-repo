@@ -1,7 +1,20 @@
 import java.util.ArrayList;
 import java.util.List;
 
-// Class to represent a food ordering system
+/**
+ * The FoodOrderingSystem class provides methods to facilitate the
+ * FoodOrderingApp
+ * 
+ * <p>
+ * This class includes methods to add items to the menu, retrieve the current
+ * menu,
+ * create new orders, and place orders. It maintains a list of menu items and
+ * provides functionality to interact with them.
+ * </p>
+ *
+ * @author Nadya Roderick
+ * @version 1.0
+ */
 public class FoodOrderingSystem {
     private List<MenuItem> menu;
 
@@ -22,10 +35,7 @@ public class FoodOrderingSystem {
     }
 
     public void placeOrder(Order order) {
-        // In a real system, you would implement logic to process the order,
-        // such as notifying the kitchen staff, deducting items from inventory, etc.
         System.out.println("Order placed successfully!");
         System.out.println("Total amount: £" + order.getTotal());
     }
 }
-

@@ -1,11 +1,13 @@
-/*
- * Javadoc will go here?
- * comment for now- this class will provide user information functions
- * other classses will inherit from this
+/**
+ * The User class is provides methods for gathering data for all
+ * classes within the User hierarchy.
+ * 
+ * @author Nadya Roderick
+ * @version 1.0
  */
-//import java.util.ArrayList;
-public class User { // this might actually be an interface
+public class User {
 
+    // fields
     private String firstName;
     private String lastName;
     private String addressFirstLine;
@@ -13,12 +15,23 @@ public class User { // this might actually be an interface
 
     // constructors
 
-    // default
+    /**
+     * default User constructor
+     */
     public User() {
 
     }
 
-    // constructor that gathers all user information. Usful for customer creation
+    /**
+     * Constructs a new User object with specified user information.
+     * Useful for customer creation.
+     * 
+     * @param firstName
+     * @param lastName
+     * @param address
+     * @param postCode
+     */
+
     public User(String firstName, String lastName, String address, String postCode) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -26,15 +39,7 @@ public class User { // this might actually be an interface
         this.postCode = postCode;
     }
 
-    // must check whetehr this type of constructor overloading is appropraite for
-    // different user types ********
-    // constructor that gathers user names. usful for staff creation.
-    public User(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-
-    // accessors
+    // accessor methods
     public String getFirstName() {
         return firstName;
     }
@@ -51,13 +56,4 @@ public class User { // this might actually be an interface
         return postCode;
     }
 
-    // mutators ***possibly not needed if set during the constructor? Only necessary
-    // for changing details.
-    // public void setFirstName(String firstName) {
-    // this.firstName = firstName;
-    // }
-
-    // remove user, does this go here or in the manager? ********
-    // read through the spec, to determine whther a customer can delete their
-    // account********
 }

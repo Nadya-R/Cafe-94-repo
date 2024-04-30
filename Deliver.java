@@ -10,7 +10,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.animation.PauseTransition;
 import javafx.util.Duration;
-
 import java.io.IOException;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -18,7 +17,30 @@ import java.util.List;
 import java.util.Objects;
 import java.time.format.DateTimeFormatter;
 
+/**
+* The Deliver class is the main application for processing delivery orders.
+* 
+* <p>
+* This class extends the JavaFX Application class and serves as the entry point for the application.
+* </p>
+* 
+* <p>
+* The application allows users to create orders by selecting items from a menu and specifying a delivery address.
+* It provides functionality for estimating delivery times based on order prices and processing orders.
+* </p>
+*
+*<p>
+*Please note that the delivery times are simulated and times are not realistic
+*</p>
+* 
+* @author Ty Bors
+* @version 1.0
+*/
+
 public class Deliver extends Application {
+
+    //Local Feilds
+
     private Delivery deliveryService;
     private Order currentOrder;
     private List<Order> orderHistory;
@@ -29,6 +51,11 @@ public class Deliver extends Application {
     private static final int ESTIMATED_DELIVERY_30_MINUTES = 30;
     private static final int ESTIMATED_DELIVERY_45_MINUTES = 45;
 
+    /**
+     * The start method initializes the primary stage and shows the GUI for the delivery application.
+     * 
+     * @param primaryStage The primary stage of the application.
+     */
     @Override
     public void start(Stage primaryStage) {
         // Create a delivery service
@@ -105,7 +132,7 @@ public class Deliver extends Application {
                 e.printStackTrace();
             }
         });
-        root.getChildren().add(backButton); // Add the back button to the root
+        root.getChildren().add(backButton); 
 
         // Set the stage
         Scene scene = new Scene(root, 400, 600);

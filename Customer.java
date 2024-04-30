@@ -1,6 +1,22 @@
 import java.util.List;
+
+/**
+ * The Customer class was intended to represent a registered customer using the
+ * System and
+ * provide methods for their interaction with the System, however this side of
+ * the System was never built.
+ * 
+ * <p>
+ * This class extends the User class to inherit methods that gather basic user
+ * information.
+ * This class includes methods designed for customers to interact with the
+ * system, such as
+ * creating orders and accessing order history
+ * </p>
+ * 
+ * @author Nadya Roderick
+ */
 public class Customer extends User {
-   // I think this is an impliment instead
 
    private static int counter = 1;
    private int customerId;
@@ -23,20 +39,19 @@ public class Customer extends User {
       return customerId;
    }
 
-   //create order
-   public  Order createTakeAway () {
+   // create order
+   public Order createTakeAway() {
       return new TakeOut();
    }
 
-   //add to previous orders list
+   // add to previous orders list
    public void addPreviousOrder(Order order) {
       previousOrders.add(order);
-  }
+   }
 
-//Show order history
-  public List<Order> getOrderHistory() {
+   // Show order history
+   public List<Order> getOrderHistory() {
       return previousOrders;
-  }
-
+   }
 
 }

@@ -12,24 +12,33 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * The StaffProfilesController class controls the staff profiles view.
+ * It manages the display of staff details and provides navigation back to the
+ * manager view.
+ * 
+ * @author Nadya Roderick
+ * @version 1.0
+ */
 public class StaffProfilesController {
     @FXML
     private VBox staffVBox;
 
-
-    //initialize method automatically evoked by java FX
+    /**
+     * Initializes the controller.
+     * Populates the staff details and sets up the back button.
+     */
     @FXML
     public void initialize() {
 
         populateStaffDetails();
 
-        //creating a container to position the back button
+        // creating a container to position the back button
         HBox buttonContainer = new HBox();
         buttonContainer.setAlignment(Pos.BOTTOM_RIGHT);
 
         // Creating a button
         Button placeBackButton = new Button("Back");
-
 
         // Add an action event handler to the button
         placeBackButton.setOnAction(event -> {
@@ -65,6 +74,11 @@ public class StaffProfilesController {
         }
     }
 
+    /**
+     * Switches to the manager view.
+     *
+     * @throws IOException Error that occurs if ManagerScene.fxml does not load
+     */
 
     @FXML
     public void switchToMangerView() throws IOException {

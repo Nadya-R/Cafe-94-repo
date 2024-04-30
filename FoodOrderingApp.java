@@ -7,29 +7,33 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
 import javafx.scene.image.Image;
-
 import java.io.IOException;
 import java.util.*;
 
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
-
 /**
- * The type Food ordering app.
+ *  The FoodOrderingApp is the main application for the TakeAway ordering system.
+ * Users can view the menu, select items, place orders, and navigate back to the customer scene.
+ * 
+ * @author Nadya Roderick
+ * @version 1.0
  */
 public class FoodOrderingApp extends Application {
-    /**
-     * The Food ordering system.
-     */
+    //local feild
+
     FoodOrderingSystem foodOrderingSystem;
     private Order currentOrder;
     private List<Order> orderHistory;
     private Menu menu;
     private TextArea orderMessages;
 
+/** 
+    <p>
+ * The GUI provides buttons for each menu item and daily specials, a text area to display order messages,
+ * a button to place orders and a back button to navigate to the Customer View. 
+ * Addionally there are labels to indicate menu sections.
+ * </p>
+ */
     @Override
     public void start(Stage primaryStage) {
         // Create a food ordering system
@@ -136,9 +140,11 @@ public class FoodOrderingApp extends Application {
 
 
     /**
+     * <p>
      * The entry point of application.
      *
      * @param args the input arguments
+     * </p>
      */
     public static void main(String[] args) {
 
