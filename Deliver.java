@@ -58,17 +58,17 @@ public class Deliver extends Application {
      */
     @Override
     public void start(Stage primaryStage) {
-        // Create a delivery service
+        // delivery service
         deliveryService = new Delivery();
         orderHistory = new ArrayList<>();
         menu = new Menu();
 
         Image iconImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/shop.png")));
 
-        // Set the icon for the primary stage
+        // icon
         primaryStage.getIcons().add(iconImage);
 
-        // Creating menu items
+        // menu items
         MenuItem burger = new MenuItem("Burger", "Delicious beef burger", 5.99);
         MenuItem pizza = new MenuItem("Pizza", "Tasty pizza with various toppings", 8.99);
         MenuItem fries = new MenuItem("Fries", "Crispy french fries", 2.49);
@@ -92,7 +92,7 @@ public class Deliver extends Application {
         orderMessages.setEditable(false);
         root.getChildren().add(orderMessages);
 
-        // Create buttons for each menu item
+        // buttons for each menu item
         for (MenuItem item : menu.getMenuItems()) {
             Button button = new Button(item.getItemName() + " - £" + item.getPrice());
             button.setOnAction(event -> {
@@ -134,7 +134,7 @@ public class Deliver extends Application {
         });
         root.getChildren().add(backButton); 
 
-        // Set the stage
+        // the stage
         Scene scene = new Scene(root, 400, 600);
         scene.getStylesheets().add(getClass().getResource("W.css").toExternalForm()); //
         primaryStage.setTitle("Delivery App");
@@ -153,7 +153,7 @@ public class Deliver extends Application {
                 String address = addressTextArea.getText();
                 if (!address.isEmpty()) {
                     currentOrder.setDeliveryAddress(address);
-                    // Set fixed estimated delivery times
+                    //Delivery Time
                     LocalTime estimatedDeliveryTime;
                     if (currentOrder.getTotalPrice() <= 15.00) {
                         estimatedDeliveryTime = LocalTime.now().plusMinutes(ESTIMATED_DELIVERY_15_MINUTES);
@@ -170,7 +170,7 @@ public class Deliver extends Application {
                     orderMessages.appendText("Order placed successfully! Total price: £" + String.format("%.2f", totalPrice) + "\n");
                     orderMessages.appendText("Estimated delivery time: " + estimatedDeliveryTime.format(DateTimeFormatter.ofPattern("HH:mm")) + "\n");
 
-                    // Add a 15-second delay before processing the order
+                    // Adds a 15-second delay before processing the order
                     PauseTransition delay = new PauseTransition(Duration.seconds(15));
                     delay.setOnFinished(e -> {
                         processOrder();
@@ -187,7 +187,7 @@ public class Deliver extends Application {
     }
 
     private void processOrder() {
-        // Simulate order processing
+        
         String processedOrderMessage = "Order processed at " + LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm"));
         chefMessages.appendText(processedOrderMessage);
 
