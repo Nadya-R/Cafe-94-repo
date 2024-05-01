@@ -1,18 +1,23 @@
-/*  Authour is Ty */
+/*  
+
+W.ccs, a class to give some background colour and brings bolder fonts.
+* @author Ty Bors
+* @version 1.0 
+ */
 
 .root {
     -fx-background-color: #e3f2fd; /* Set light blue background color for the root VBox */
 }
 
 .label {
-    -fx-font-size: 14pt; /* Set font size */
+    -fx-font-size: 14pt; /* Sets font size 
 }
 
 .button {
-    -fx-background-color: white; /* Set white background color for buttons */
-    -fx-text-fill: #000000; /* Set black text color for buttons */
+    -fx-background-color: white; /* Sets white background color for buttons */
+    -fx-text-fill: #000000; /* Sets black text color for buttons */
 }
 
 .button:hover {
-    -fx-background-color: #f0f0f0; /* Set light gray background color for buttons on hover */
+    -fx-background-color: #f0f0f0; /* Sets light gray background color for buttons on hover */
 }
