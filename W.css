@@ -10,7 +10,7 @@ W.ccs, a class to give some background colour and brings bolder fonts.
 }
 
 .label {
-    -fx-font-size: 14pt; /* Sets font size 
+    -fx-font-size: 14pt; /* Sets font size */
 }
 
 .button {
